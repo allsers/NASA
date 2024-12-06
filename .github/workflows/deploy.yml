@@ -17,4 +17,5 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./  # Root directory of your HTML file
+        publish_branch: gh-pages  # Ensure this is set to gh-pages
+        publish_dir: ./  # Root directory of your HTML files
