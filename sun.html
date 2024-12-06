@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Solar System</title>
+    <link rel="icon" type="image/x-icon" href="/Media/Graphics/favicon.png">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="planets.css">
+    <link rel="stylesheet" type="text/css" href="sun.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="triangle"></div>
+        <img id="NasaLogo" src="Media/Pictures/Nasa Logo.png">
+    </div>
+    <div id="TitleContainer">
+        <h1 id="Title">The Sun</h1>
+    </div>
+
+    <div id="video-container">
+        <video autoplay muted loop id="video">
+            <source src="Media/Video/Stars Loop.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <canvas id='midplanet'></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="sun.js"></script>
+
+    <div class="text-container">
+        <button id = "text-button" class="fade-in">
+            <img id = "arrow" src="Media/Graphics/Arrow.png">
+            <img id = "textbox" src="Media/Graphics/Textbox.png">
+            <span id = "info-text" class="fade-out">The Sun is a blazing sphere of hot <br>
+                plasma spanning 1.4 million kilometers <br>
+                in diameter. Its scorching surface <br>
+                temperature exceeds 5,500 <br>
+                degrees Celsius, <br>
+                while its core reaches over 15 million <br>
+                degrees Celsius. <br>
+                This colossal star dominates our <br>
+                solar system, providing light and heat <br>
+                essential for life on Earth.</span>
+        </button>
+    </div>
+
+    <canvas id='rightplanet'></canvas>
+    <script src="mercury.js"></script>
+
+    <canvas id = 'outplanet'></canvas>
+    <script src="venus.js"></script>
+
+
+
+    <script>
+
+        var textbox = document.getElementById('textbox');
+        var arrow = document.getElementById('arrow');
+        var text = document.getElementById('info-text');
+        var midplanet = document.getElementById('midplanet')
+        var rightplanet = document.getElementById('rightplanet')
+        var title = document.getElementById('Title')
+
+        arrow.classList.add("fade-in")
+        textbox.classList.add("fade-in")
+        title.classList.add("fade-in")
+
+        function moveL() {
+            textbox.classList.remove("fade-in")
+            textbox.classList.add("fade-out")
+            text.classList.remove('fade-in')
+            text.classList.add("fade-out")
+            arrow.classList.remove("fade-in")
+            arrow.classList.add("fade-out")
+            title.classList.remove("fade-in")
+            title.classList.add("fade-out")
+            midplanet.classList.add("movedleft")
+            rightplanet.classList.add("movedfront")
+            outplanet.classList.add("movedin")
+            
+            setTimeout(function() {
+            window.location.href = 'mercury.html';
+            }, 150);
+        }
+
+        function toggleFade() {
+            if (arrow.classList.contains('fade-out')) {
+                text.classList.remove('fade-in')
+                text.classList.add('fade-out')
+                setTimeout(function() {
+                    textbox.classList.remove('expanded')
+                    textbox.classList.add('contracted')
+
+                }, 80);
+                setTimeout(function() {
+                    arrow.classList.remove('fade-out');
+                    arrow.classList.add('fade-in');
+                }, 150);
+
+            } else {
+                arrow.classList.remove('fade-in');
+                arrow.classList.add('fade-out');
+                setTimeout(function() {
+                    textbox.classList.remove('contracted')
+                    textbox.classList.add('expanded')
+                }, 80);
+                setTimeout(function() {
+                    text.classList.remove('fade-out')
+                    text.classList.add('fade-in')
+                }, 150);
+            }
+        }
+            document.getElementById('text-button').addEventListener('click', toggleFade);
+            rightplanet.addEventListener('click', moveL);
+    </script>
+
+</body>
+</html>
