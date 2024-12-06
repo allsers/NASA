@@ -1,1 +1,43 @@
-My GitHub Pages site
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Solar System</title>
+    <link rel="icon" type="image/x-icon" href="/Media/Graphics/favicon.png">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+    <div class="navbar">
+        
+        <div class="triangle"></div>
+        <img id="NasaLogo" src="Media/Pictures/Nasa Logo.png">
+    </div>
+
+    <h1 id="Title">The Solar System</h1>
+
+    <div id="video-container">
+        <video autoplay muted loop id="video">
+            <source src="Media/Video/EarthLoop.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="button-container">
+        <button id="start-button">
+            <img id="graphic" src="Media/Graphics/Button-Graphic.png">
+            <span id="explore-txt">EXPLORE</span>
+        </button>
+    </div>
+    <script>
+        function fadeOut() {
+            document.getElementById('Title').classList.add('fade-out');
+            document.getElementById('start-button').classList.add('fade-out');
+            setTimeout(function() {
+            window.location.href = 'sun.html';
+            }, 500);
+        }
+        document.getElementById('start-button').addEventListener('click', fadeOut);
+    </script>
+    
+</body>
+</html>

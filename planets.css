@@ -1,0 +1,103 @@
+@keyframes expand {
+    from {
+        padding-right: 0%;
+        width: 16vw;
+        height: 9vh;
+    }
+    to {
+        width: 24vw;
+        height: 34vh;
+        padding-top: 60%;
+    }
+}
+
+@keyframes contract {
+    from {
+        width: 24vw;
+        height: 34vh;
+        padding-top: 60%;
+    }
+    to {
+        padding-right: 0%;
+        width: 16vw;
+        height: 9vh;
+    }
+}
+
+.expanded {
+    animation: expand 0.35s forwards;
+}
+
+.contracted {
+    animation: contract 0.35s forwards;
+}
+
+
+#outplanet, #left-outplanet {
+    z-index: 1;
+    position: absolute;
+    top: 3.75vw;
+}
+
+#leftplanet {
+    z-index: 1;
+    position: absolute;
+    top: 3.75vw;
+}
+
+#midplanet {
+    z-index: -1;
+    position: absolute;
+    top: 3.75vw;
+}
+
+#rightplanet {
+    position: absolute;
+    top: 3.75vw;
+    z-index: 1;
+}
+
+#rightplanet:hover {
+    cursor: pointer;
+}
+
+#leftplanet:hover {
+    cursor: pointer;
+}
+
+#textbox {
+    position: absolute;
+    text-align: center;
+    width: 16vw;
+    height: 9vh;
+    transition: all 0.35s ease;
+}
+
+#text-button {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: 0;
+}
+
+#info-text {
+    line-height: 1.6em;
+    font-size: 0.8vw;
+    font-family: Copperplate;
+    color: white;
+    padding-top: 62%;
+    z-index: 1;
+}
+
+#arrow {
+    z-index: 1;
+    position: absolute;
+    display: flex;
+    width: 6.75em;
+}
+
+#text-button:hover {
+    cursor: pointer;
+}

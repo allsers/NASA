@@ -1,0 +1,125 @@
+@keyframes move-left {
+    from {
+        right: 0%;
+        transform: scale(1);
+    }
+    to {
+        right: 50%;
+        transform: scale(1);
+    }
+}
+
+@keyframes left-move-front {
+    from {
+        right: 40%;
+        transform: scale(1);
+    }
+    to {
+        right: 0%;
+        transform: scale(1);
+    }
+}
+
+@keyframes right-move-front {
+    from {
+        left: 47.5%
+    }
+    to {
+        left: 0;
+    }
+}
+
+@keyframes move-right {
+    from {
+        left: 0;
+        transform: scale(1);
+    }
+    to {
+        left: 47.5%;
+        transform: scale(1);
+    }
+}
+
+@keyframes left-move-out {
+    from {
+        right: 40%;
+    }
+    to {
+        right: 80%;
+    }
+}
+
+@keyframes right-move-out {
+    from {
+        left: 47.5%;
+        transform: scale(1);
+    }
+    to {
+        left:85%;
+        transform: scale(1);
+    }
+}   
+
+@keyframes left-move-in {
+    from {
+        right: 90%;
+        transform: scale(1);
+    }
+    to {
+        right: 75%;
+        transform: scale(2);
+    }
+}
+
+#outplanet {
+    transform: scale(1);
+    right: 90%;
+}
+
+#leftplanet {
+    right: 40%;
+    transform: scale(1)
+}
+
+#rightplanet {
+    left: 47.5%;
+    transform: scale(1)
+}
+
+.right-movedfront {
+    animation: right-move-front 0.35s forwards;
+}
+
+.left-movedin {
+    animation: left-move-in 0.35s forwards;
+}
+
+.left-movedout {
+    animation: left-move-out 0.35s forwards
+}
+
+.right-movedout {
+    animation: right-move-out 0.35s forwards;
+}
+
+.movedleft {
+    animation: move-left 0.35s forwards;
+}
+
+.left-movedfront {
+    animation: left-move-front 0.35s forwards;
+}
+
+.movedright {
+    animation: move-right 0.35s forwards;
+}
+
+.text-container {
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+    padding-top: 25%;
+    padding-left: 30%;
+    align-items: center;
+    text-align: center;
+}
