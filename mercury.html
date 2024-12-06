@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Solar System</title>
+    <link rel="icon" type="image/x-icon" href="/Media/Graphics/favicon.png">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="planets.css">
+    <link rel="stylesheet" type="text/css" href="mercury.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="triangle"></div>
+        <img id="NasaLogo" src="Media/Pictures/Nasa Logo.png">
+    </div>
+
+    <div id="TitleContainer">
+        <h1 id="Title">Mercury</h1>
+    </div>
+
+    <div id="video-container">
+        <video autoplay muted loop id="video">
+            <source src="Media/Video/StarsLoop.mp4" type="video/mp4">
+        </video>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <canvas id='leftplanet'></canvas>
+    <script src="sun.js"></script>
+
+    <canvas id='midplanet'></canvas>
+    <script src="mercury.js"></script>
+
+    <div class="text-container">
+        <button id = "text-button" class="fade-in">
+            <img id = "arrow" src="Media/Graphics/Arrow.png">
+            <img id = "textbox" src="Media/Graphics/Textbox.png">
+            <span id = "info-text" class="fade-out">Mercury is the closest planet to the <br>
+                Sun. Its temperatures range from <br>
+                scorching highs of 427°C <br>
+                to freezing lows of -173°C. <br>
+                Its surface is heavily cratered <br>
+                and devoid of atmosphere, <br>
+                which bears witness to its tumultuous <br>
+                past. Vulnerable to solar radiation,  <br>
+                Mercury remains a desolate and  <br>
+                barren World in our solar system.</span>
+        </button>
+    </div>
+
+    <canvas id='rightplanet'></canvas>
+    <script src="venus.js"></script>
+
+    <canvas id ='outplanet'></canvas>
+    <script src="earth.js"></script>
+
+    <script>
+        var textbox = document.getElementById('textbox');
+        var arrow = document.getElementById('arrow');
+        var text = document.getElementById('info-text');
+        var midplanet = document.getElementById('midplanet');
+        var rightplanet = document.getElementById('rightplanet');
+        var leftplanet = document.getElementById('leftplanet');
+        var title = document.getElementById('Title');
+
+        arrow.classList.add("fade-in")
+        textbox.classList.add("fade-in")
+        title.classList.add("fade-in")
+
+
+        function moveL() {
+            textbox.classList.remove("fade-in")
+            textbox.classList.add("fade-out")
+            text.classList.remove('fade-in')
+            text.classList.add("fade-out")
+            arrow.classList.remove("fade-in")
+            arrow.classList.add("fade-out")
+            title.classList.remove("fade-in")
+            title.classList.add("fade-out")
+            leftplanet.classList.add("left-movedout")
+            midplanet.classList.add("movedleft")
+            rightplanet.classList.add("right-movedfront")
+            outplanet.classList.add("movedin")
+            setTimeout(function() {
+            window.location.href = 'venus.html';
+            }, 150);
+        }
+
+        function moveR() {
+            textbox.classList.remove("fade-in")
+            textbox.classList.add("fade-out")
+            text.classList.remove('fade-in')
+            text.classList.add("fade-out")
+            arrow.classList.remove("fade-in")
+            arrow.classList.add("fade-out")
+            title.classList.remove("fade-in")
+            title.classList.add("fade-out")
+            midplanet.classList.add("movedright")
+            leftplanet.classList.add("left-movedfront")
+            rightplanet.classList.add("right-movedout")
+
+            setTimeout(function() {
+            window.location.href = 'sun.html';
+            }, 150);
+        }
+
+        function toggleFade() {
+            if (arrow.classList.contains('fade-out')) {
+                text.classList.remove('fade-in')
+                text.classList.add('fade-out')
+                setTimeout(function() {
+                    textbox.classList.remove('expanded')
+                    textbox.classList.add('contracted')
+
+                }, 80);
+                setTimeout(function() {
+                    arrow.classList.remove('fade-out');
+                    arrow.classList.add('fade-in');
+                }, 150);
+
+            } else {
+                arrow.classList.remove('fade-in');
+                arrow.classList.add('fade-out');
+                setTimeout(function() {
+                    textbox.classList.remove('contracted')
+                    textbox.classList.add('expanded')
+                }, 80);
+                setTimeout(function() {
+                    text.classList.remove('fade-out')
+                    text.classList.add('fade-in')
+                }, 150);
+            }
+        }
+            document.getElementById('text-button').addEventListener('click', toggleFade);
+            rightplanet.addEventListener('click', moveL);
+            leftplanet.addEventListener('click', moveR);
+    </script>
+
+</body>
+</html>

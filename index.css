@@ -1,0 +1,67 @@
+
+body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.button-container {
+    transition: opacity 0.5s;
+    padding-top: 52.5vh;
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+
+#start-button {
+    text-align: center;
+    position: relative;
+    display: flex;
+    background-color: transparent;
+    border: none;   
+}
+
+#start-button:hover {
+    cursor: pointer;
+}
+
+#graphic {
+    transform: translate(-50%, -50%);
+    width: 100%;
+    position: absolute;
+    display: flex;
+    user-select: none;
+    width: 27.5em;
+    text-align: center;
+}
+
+#explore-txt {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    display: flex;
+    font-size: 2.75em;
+    transform: translate(-1000%, -50%);
+    font-family: 'Ethnocentric';
+    color: #6EE6E6;
+}
+
+@media (max-width: 767px) {
+    #graphic {
+        width: 22em;
+    }
+    #explore-txt {
+        font-size: 2em;
+        transform: translate(-750%, -50%);
+    }
+}
+
+@media (min-width: 1920px) {
+    #graphic {
+        width: 35em;
+    }
+    #explore-txt {
+        font-size: 3.5em;
+        transform: translate(-1300%, -50%);
+    }
+}
